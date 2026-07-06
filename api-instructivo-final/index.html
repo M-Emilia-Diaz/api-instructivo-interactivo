@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Salud Mental | Instructivo Interactivo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/styles.css">
+</head>
+<body>
+  <div class="site-shell" id="siteShell">
+    <header class="header">
+      <nav class="navbar container" aria-label="Navegación principal">
+        <a href="#inicio" class="brand" aria-label="Inicio API Salud Mental">
+          <img src="./assets/img/API_logo2.png" alt="API Salud Mental">
+          <span class="brand-text">Instructivo Instituciones</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#coberturas">Coberturas</a></li>
+          <li><a href="#axonico">Axonico</a></li>
+          <li><a href="#documentacion">Documentación</a></li>
+          <li><a href="#honorarios">Honorarios</a></li>
+          <li><a href="#mails">Contactos</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <!-- <section class="hero container"> -->
+      <section class="hero hero-main">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Guía rápida para profesionales</p>
+          <h1>Asistencia <br> Psicoterapéutica <br> Integral</h1>
+          <p class="hero-copy">API está constituida por una amplia red de profesionales de diferentes especialidades: psiquiatras, psicólogos, psicopedagogos, acompañantes terapéuticos, entre otros.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#pasos">Empezar</a>
+            <a class="btn btn-ghost" href="#coberturas">Ver coberturas</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-padding" id="pasos">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Flujo principal</p>
+          <h2>Lo esencial para comenzar</h2>
+          <p>Lo que se debe tener en cuenta antes de arrancar.</p>
+        </div>
+        <label class="search-box reveal" for="searchInput">
+          <span>⌕</span>
+          <input type="search" id="searchInput" placeholder="Buscar: Axónico, factura, ausente, autorización..." aria-label="Buscar en las cards" />
+        </label>
+
+        <div class="cards-grid" id="mainCards">
+          <article class="info-card reveal" data-keywords="axonico plataforma historia clinica sesiones carga web documentación mensual">
+            <img src="./assets/img/axonico-mockup.png" alt="Equipo trabajando en computadoras" />
+            <div class="card-body">
+              <span class="tag">Plataforma</span>
+              <h3>Axónico y web API</h3>
+              <p>La carga de prestaciones, documentación e historia clínica se gestiona en plataformas digitales.</p>
+              <button class="read-more" data-modal="axonico">Leer más</button>
+            </div>
+          </article>
+          <article class="info-card reveal" data-keywords="documentación online presencial constancia planilla firmas paciente sello profesional">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80" alt="Documentos administrativos sobre una mesa" />
+            <div class="card-body">
+              <span class="tag">Documentación</span>
+              <h3>Online vs presencial</h3>
+              <p>Constancia de atención para modalidad virtual y planilla de firmas para modalidad presencial.</p>
+              <button class="read-more" data-modal="documentacion">Leer más</button>
+            </div>
+          </article>
+          <article class="info-card reveal" data-keywords="ausente sin aviso 48 horas consentimiento informado copago psicologia psicopedagogia">
+            <img src="./assets/img/agenda.jpg" alt="Calendario y agenda" />
+            <div class="card-body">
+              <span class="tag">Turnos</span>
+              <h3>Ausentes y cancelaciones</h3>
+              <p>Reglas para ausencias sin aviso o cancelaciones con menos de 48 horas.</p>
+              <button class="read-more" data-modal="ausentes">Leer más</button>
+            </div>
+          </article>
+          <article class="info-card reveal" data-keywords="paciente datos dni afiliado credencial obra social prepaga autorizaciones copagos">
+            <img src="./assets/img/contacto.jpg" alt="Persona completando formularios" />
+            <div class="card-body">
+              <span class="tag">Alta paciente</span>
+              <h3>Antes de confirmar turno</h3>
+              <p>Datos mínimos, verificación de cobertura, copagos y autorizaciones especiales.</p>
+              <button class="read-more" data-modal="paciente">Leer más</button>
+            </div>
+          </article>
+        </div>
+        <p class="empty-state" id="emptyState">No encontré cards con ese término. Probá con otra palabra, detective 🕵️‍♀️</p>
+      </section>
+
+      <section class="section muted" id="coberturas">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Normativas por institución</p>
+            <h2>Coberturas médicas</h2>
+            <p>Procedimientos administrativos según Obra Social o Prepaga.</p>
+          </div>
+          <div class="coverage-grid" id="coverageCards"></div>
+        </div>
+      </section>
+
+
+      <section class="section process-section" id="axonico">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Flujo recomendado</p>
+            <h2>Axónico: la herramienta principal para registrar las atenciones</h2>
+            <p>Un recorrido paso a paso para que la carga de las sesiones sea efectiva.</p>
+          </div>
+          <div class="steps reveal" data-flow="axonico">
+            <button class="step active" data-flow="axonico" data-step="0">1. Pedir datos</button>
+            <button class="step" data-flow="axonico" data-step="1">2. Verificar cobertura</button>
+            <button class="step" data-flow="axonico" data-step="2">3. Atender</button>
+            <button class="step" data-flow="axonico" data-step="3">4. Cargar sesión</button>
+          </div>
+          <div class="step-panel reveal" id="axonicoStepPanel"></div>
+        </div>
+      </section>
+
+      <section class="section process-section process-section-soft" id="documentacion">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Flujo recomendado</p>
+            <h2>Documentación: qué preparar y cómo presentarlo</h2>
+            <p>Modalidad, firmas, constancias y control antes de enviar.</p>
+          </div>
+          <div class="steps reveal" data-flow="documentacion">
+            <button class="step active" data-flow="documentacion" data-step="0">1. Definir modalidad</button>
+            <button class="step" data-flow="documentacion" data-step="1">2. Completar formulario</button>
+            <button class="step" data-flow="documentacion" data-step="2">3. Controlar documentación</button>
+            <button class="step" data-flow="documentacion" data-step="3">4. Subir o enviar</button>
+          </div>
+          <div class="step-panel reveal" id="documentacionStepPanel"></div>
+        </div>
+      </section>
+
+      <section class="section container two-columns" id="honorarios">
+        <div class="reveal">
+          <p class="eyebrow">Facturación</p>
+          <h2>Honorarios profesionales</h2>
+          <p class="section-copy">Para una correcta generación de honorarios, las prestaciones deben cargarse en Axónico y contar con documentación respaldatoria.</p>
+          <div class="mini-timeline">
+            <article><span>01</span><div><strong>Cargar sesión</strong><p>Preferentemente el mismo día de atención en Axónico.</p></div></article>
+            <article><span>02</span><div><strong>Subir documentación</strong><p>Planilla presencial o constancia virtual, según modalidad.</p></div></article>
+            <article><span>03</span><div><strong>Emitir factura</strong><p>Importe exacto y envío al mail correcto en tiempo y forma.</p></div></article>
+          </div>
+        </div>
+        <aside class="pay-card reveal">
+          <h3>Referencia de pago</h3>
+          <ul>
+            <li><strong>Swiss Medical / Premedic:</strong> 90 días desde documentación presentada.</li>
+            <li><strong>Omint / Hominis / Unión Personal / Ospe / Santa Cruz:</strong> 60 días desde documentación presentada.</li>
+            <li><strong>Módulo:</strong> transferencia entre el 10 y 13.</li>
+            <li><strong>Red:</strong> transferencia entre el 20 y 25.</li>
+          </ul>
+          <button class="btn btn-primary open-detail" data-detail="facturacion">Leer más</button>
+        </aside>
+      </section>
+
+      <section class="section container" id="mails">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Contactos</p>
+          <h2>Mails útiles</h2>
+          <p>Ante cualquir duda, ponete en contacto con nosotros.</p>
+        </div>
+        <div class="mail-grid" id="mailCards"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>API Salud Mental · Instructivo interactivo para profesionales</p>
+        <a href="#inicio">Volver arriba ↑</a>
+      </div>
+    </footer>
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <article class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar modal">×</button>
+      <span class="tag" id="modalTag"></span>
+      <h2 id="modalTitle"></h2>
+      <div id="modalContent"></div>
+    </article>
+  </div>
+
+  <script src="./js/script.js"></script>
+</body>
+</html>
+
+
+<!-- NOTAS IMPORTANTES:
+ SE DEBE AGREGAR LINK PARA CUADRO DE COPAGOS QUE ARMO GISE.
+ LINK DIRECTO A LA PAGINA DE AXONICO
+ LINK DIRECTO A LA PAGINA DE WEB API
+ LINK DIRECTO AFLAYER DE EXCEPCIONES DE CARGA DE DOCU
+ AGREGAR TODOS LOS MAILS DEL INSTRUCTIVO? -->
