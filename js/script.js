@@ -130,7 +130,13 @@ const flows = {
     },
     {
       title: 'Completar el formulario correcto',
-      html: `<ul><li><strong>Presencial:</strong> planilla de firmas impresa. Cuenta con el logo de cada cobertura. Es la que el profesional completa en su totalidad y el paciente firma y aclara el mismo día que asiste al turno en el consultorio.</li><li><strong>Virtual:</strong> constancia de atención. Formato PDF que el profesional debe enviarle al paciente para que complete y firme de manera manuscrita. En caso de no contar con los medios para impresión, puede transcribirla en una hoja./li><li>En cualquiera de las dos modalides, usar una planilla o constancia por paciente y por mes.</li><li>Si la moodalidad es hibrida, se usa una planilla para las atenciones presenciales y una constancia para las virtuales.</li></ul>`
+      html: `<ul><li><strong>Presencial:</strong> planilla de firmas impresa. Cuenta con el logo de cada cobertura. Es la que el profesional completa en su totalidad y el paciente firma y aclara el mismo día que asiste al turno en el consultorio.</li><li><strong>Virtual:</strong> constancia de atención. Formato PDF que el profesional debe enviarle al paciente para que complete y firme de manera manuscrita. En caso de no contar con los medios para impresión, puede transcribirla en una hoja.<li>En cualquiera de las dos modalides, usar una planilla o constancia por paciente y por mes.</li><li>Si la moodalidad es hibrida, se usa una planilla para las atenciones presenciales y una constancia para las virtuales.</li>
+      <a href="https://apisaludmental.com.ar/profesionales/"
+           target="_blank"
+           rel="noopener noreferrer">
+          Descarga Planillas/Constancias
+        </a>
+      </ul>`
     },
     {
       title: 'Controlar datos antes de presentar',
@@ -276,7 +282,7 @@ const mailsByArea = {
   asistencial: [
     { area: 'Coordinacion asistencial', responsable: 'Soledad Bruno', mail: 'sbruno@apisaludmental.com.ar', subject: 'Coordinación general del área asistencial' },
     { area: 'Supervisión Call Center', responsable: 'Lucia Campillo', mail: 'lcampillo@apisaludmental.com.ar', subject: 'Consultas referidas a turnos' },
-    { area: 'Recepcion Sede Barrio Norte', responsable: '-', mail: 'barrionorte@apisaludmental.com.ar', subject: 'Consultorios externos de API' },
+    { area: 'Recepcion Sede Av. de Mayo', responsable: '-', mail: 'avdemayo@apisaludmental.com.ar', subject: 'Consultorios externos de API' },
     { area: 'Recepcion Sede Caballito', responsable: '-', mail: 'caballito@apisaludmental.com.ar', subject: 'Consultorios externos de API' },
     { area: 'Turnos', responsable: '-', mail: 'turnos@apisaludmental.com.ar', subject: 'Atención telefónica y de WhatsApp para la gestión de turnos' },
   ],
