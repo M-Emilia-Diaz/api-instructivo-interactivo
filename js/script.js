@@ -172,7 +172,7 @@ const copays = [
   },
   {
     name: 'OSPE',
-    image: './assets/img/copagos-ospe.jpeg'
+    image: './assets/img/copagos-ospe-.jpeg'
   },
   {
     name: 'Premedic',
