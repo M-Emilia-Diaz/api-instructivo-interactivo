@@ -160,7 +160,7 @@ const flows = {
 const copays = [
   {
     name: 'Unión Personal',
-    image: './assets/img/copagos-up.jpeg'
+    image: './assets/img/copagos-up-.jpeg'
   },
   {
     name: 'Omint',
@@ -188,7 +188,7 @@ const copays = [
   },
   {
     name: 'Post 30 Omint',
-    image: './assets/img/copagos-post30omint.jpeg'
+    image: './assets/img/copagos-post30omint-.jpeg'
   },
   {
     name: 'Ausentes',
