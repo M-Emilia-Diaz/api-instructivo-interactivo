@@ -114,7 +114,7 @@ const flows = {
       html: `<ul>
       <li>Cargar la prestación dentro del mes de atención. El tiempo límite para hacerlo es hasta el último día del mes, 23:59 hs. </li><li>Cargar fuera de fecha afecta el consumo mensual del socio y la liquidación de dicha prestación, atrasando el pago de la misma.</li><li>Usar la fecha real de sesión en caso de que el sistema lo admita.</li><li>Registrar evolución de la sesión en la Historia Clínica.</li><li>Evitar acumulaciones grandes de carga: lo recomendado es carga diaria.</li>
       
-        <a href="https://www.axonico.ar/login.php"
+        <a href="https://api.his.axonico.ar/login"
            target="_blank"
            rel="noopener noreferrer">
           Ingresar a Axónico
@@ -146,6 +146,11 @@ const flows = {
            rel="noopener noreferrer">
           Ingresar a Web API
         </a>
+        <a href="./assets/img/cuadro-orientativo.jpeg"
+           target="_blank"
+           rel="noopener noreferrer">
+          Cuadro orientativo
+        </a>
         
         </ul>`
     }
@@ -153,16 +158,42 @@ const flows = {
 };
 
 const copays = [
-  // { name: 'GENERAL', image: './assets/img/copago-union-personal.png' },
-  { name: 'UNION PERSONAL', values: ['$12.300/$15.500', '$12.300/$15.500', '$12.300/$15.500', '$17.000/$20.700', '$12.300/$15.500', '$12.300/$15.500'] },
-  { name: 'OMINT', values: ['$7.900', '$11.500', '$12.800', '$13.200', '$15.000', '$7.000'] },
-  { name: 'HOMINIS', values: ['$8.200', '$11.800', '$13.000', '$13.700', '$15.800', '$7.200'] },
-  { name: 'PREMEDIC', values: ['$8.900', '$12.500', '$14.000', '$14.500', '$17.000', '$7.800'] },
-  { name: 'OSPE', values: ['$10.000', '$14.000', '$15.500', '$16.000', '$18.500', '$8.500'] },
-  { name: 'API INSTITUCIONAL', values: ['$9.200', '$13.000', '$14.500', '$15.000', '$17.500', '$8.000'] },
-  { name: 'AUSENTE', values: ['$12.000', '$12.000', '$12.000', 'NO APLICA', '$12.000', '$12.000'] },
-  { name: 'POST SWISS', values: ['$9.200', '$13.000', '$14.500', '$15.000', '$17.500', '$8.000'] },
-  { name: 'POST30 OMINT CS', values: ['$16.000/$19.000/$25.000', '$16.000/$19.000/$25.000', '$16.000/$19.000/$25.000', '$16.000/$19.000/$25.000', '$16.000/$19.000/$25.000', '$16.000/$19.000/$25.000'] }
+  {
+    name: 'Unión Personal',
+    image: './assets/img/copagos-up.jpeg'
+  },
+  {
+    name: 'Omint',
+    image: './assets/img/copagos-omint.jpeg'
+  },
+  {
+    name: 'Hominis',
+    image: './assets/img/copagos-hominis.jpeg'
+  },
+  {
+    name: 'OSPE',
+    image: './assets/img/copagos-ospe.jpeg'
+  },
+  {
+    name: 'Premedic',
+    image: './assets/img/copagos-premedic.jpeg'
+  },
+  {
+    name: 'API Institucional',
+    image: './assets/img/copagos-API.jpeg'
+  },
+  {
+    name: 'Post Swiss',
+    image: './assets/img/copagos-postswiss.jpeg'
+  },
+  {
+    name: 'Post 30 Omint',
+    image: './assets/img/copagos-post30omint.jpeg'
+  },
+  {
+    name: 'Ausentes',
+    image: './assets/img/copagos-ausentes.jpeg'
+  },
 ];
 
 const copayServices = ['Psicoterapia individual', 'Terapia de pareja', 'Terapia de familia / pareja', 'Psiquiatría', 'Psicodiagnóstico', 'Admisión'];
@@ -228,30 +259,43 @@ function initFlows() {
 }
 
 const mailsByArea = {
-  // Editá únicamente esta lista para cambiar los contactos de Área asistencial.
-  asistencial: [
-    
-    { area: 'Coordinacion asistencial', mail: 'sbruno@apisaludmental.com.ar', subject: 'Coordinación general del área asistencial' },
-    { area: 'Supervisión Call Center', mail: 'lcampillo@apisaludmental.com.ar', subject: 'Consultas referidas a turnos' },
-    { area: 'Recepcion Sede Barrio Norte', mail: 'barrionorte@apisaludmental.com.ar', subject: 'Consultorios externos de API' },
-    { area: 'Recepcion Sede Caballito', mail: 'caballito@apisaludmental.com.ar', subject: 'Consultorios externos de API' },
-    { area: 'Turnos', mail: 'turnos@apisaludmental.com.ar', subject: 'Atención telefónica y de WhatsApp para la gestión de turnos' },
-  ],
 
-  // Editá únicamente esta lista para cambiar los contactos de Área administrativa.
   administrativa: [
-    { area: 'Asistencia administrativa', mail: 'ggarcia@apisaludmental.com.ar', subject: 'Consulta por procedimiento administrativo' },
-    { area: 'Asistencia administrativa', mail: 'ediaz@apisaludmental.com.ar', subject: 'Consulta por procedimiento administrativo' },
-    { area: 'Asistencia administrativa', mail: 'DCanteros@apisaludmental.com.ar', subject: 'Consulta por procedimiento administrativo' },
-    { area: 'Asistencia administrativa', mail: 'fspadini@apisaludmental.com.ar', subject: 'Consulta por procedimiento administrativo' },
-    { area: 'Facturación de honorarios', mail: 'facturahonorarios@apisaludmental.com.ar', subject: 'Envío de factura de honorarios' },
-    { area: 'Facturación / débitos', mail: 'facturacion@apisaludmental.com.ar', subject: 'Consulta por facturación o débito' }
+    { area: 'Coordinacion de Administración', responsable: 'Griselda Alvarez', mail: 'administracion@apisaludmental.com.ar', subject: 'Coordinacion general del área de administracion' },
+    { area: 'Jefa de facturación', responsable: 'Rosana Polli', mail: 'facturacion@apisaludmental.com.ar', subject: 'Consulta por facturación o débito' },
+    { area: 'Asist. administrativa / facturación', responsable: 'Gisela García', mail: 'ggarcia@apisaludmental.com.ar', subject: 'Soporte administrativo a profesionales' },
+    { area: 'Asist. administrativa / facturación', responsable: 'Emilia Diaz', mail: 'ediaz@apisaludmental.com.ar', subject: 'Soporte administrativo a profesionales' },
+    { area: 'Asist. administrativa / facturación', responsable: 'Dalila Canteros', mail: 'DCanteros@apisaludmental.com.ar', subject: 'Soporte administrativo a profesionales' },
+    { area: 'Asist. administrativa / facturación', responsable: 'Florencia Spadini', mail: 'fspadini@apisaludmental.com.ar', subject: 'Soporte administrativo a profesionales' },
+    { area: 'Facturación de honorarios', responsable: 'Solo recepción de facturas', mail: 'facturahonorarios@apisaludmental.com.ar', subject: 'Recepcion de facturas mensuales por honorarios profesionales' },
+    { area: 'Contaduría', responsable: 'Patricio Romero', mail: 'contaduria@apisaludmental.com.ar', subject: 'Gestión contable' },
+    { area: 'Contaduría', responsable: 'Carolina Otero', mail: 'admcontable@apisaludmental.com.ar', subject: 'Gestión contable' },
+    { area: 'Recepción Administrativa', responsable: 'Cintia Czeczyk', mail: 'api@apisaludmental.com.ar', subject: 'Casilla general de Api' },
   ],
 
-  // Editá únicamente esta lista para cambiar los contactos de Coordinación Médica.
+  asistencial: [
+    { area: 'Coordinacion asistencial', responsable: 'Soledad Bruno', mail: 'sbruno@apisaludmental.com.ar', subject: 'Coordinación general del área asistencial' },
+    { area: 'Supervisión Call Center', responsable: 'Lucia Campillo', mail: 'lcampillo@apisaludmental.com.ar', subject: 'Consultas referidas a turnos' },
+    { area: 'Recepcion Sede Barrio Norte', responsable: '-', mail: 'barrionorte@apisaludmental.com.ar', subject: 'Consultorios externos de API' },
+    { area: 'Recepcion Sede Caballito', responsable: '-', mail: 'caballito@apisaludmental.com.ar', subject: 'Consultorios externos de API' },
+    { area: 'Turnos', responsable: '-', mail: 'turnos@apisaludmental.com.ar', subject: 'Atención telefónica y de WhatsApp para la gestión de turnos' },
+  ],
+
   coordinacion: [
-    { area: 'Auditoría médica', mail: 'auditoria@apisaludmental.com.ar', subject: 'Consulta a Auditoría Médica' },
-    { area: 'Órdenes médicas', mail: 'ordenesmedicas@apisaludmental.com.ar', subject: 'Envío de orden médica' }
+    { area: 'Coordinación Médica', responsable: 'Carla Oliva', mail: 'coliva@apisaludmental.com.ar', subject: 'Coordinacion general del área médica' },
+    { area: 'Asesoramiento Legal', responsable: 'Lorna Oliva', mail: 'asistencialegal@apisaludmental.com.ar', subject: 'Consultas sobre certificados, oficios, tratamientos judicializados y asesoramiento legal a profesionales' },
+    { area: 'Gestión de internaciones', responsable: 'Veronica Canaves, Milagros Caja Quiroz', mail: ['mquiroz@apisaludmental.com.ar', 'vcanaves@apisaludmental.com.ar'], subject: 'Consultas o situaciones referidas a pacientes internados y gestión de tratamientos domiciliarios.' },
+    { area: 'Auditoria Internaciones', responsable: ['Dr. Pablo García San Agustín', 'Lic. Muñoz Micaela'], mail: ['psanagustin@apisaludmental.com.ar', 'micaela.munoz@apisaludmental.com.ar'], subject: 'Auditoria de pacientes internados en clinicas psiquiátricas.' },
+    { area: 'Auditoria red y dispositivos especiales', responsable: 'Lic. Romanello Sabrina', mail: ['informes@apisaludmental.com.ar', 'sromanello@apisaludmental.com.ar'], subject: 'Auditoria informes y auditoria prestacional de red de profesionales.' },
+    { area: 'Coordinación de Psiquiatría', responsable: 'Dra. Analía Gordillo', mail: 'agordillo@apisaludmental.com.ar', subject: 'Consultas y/o derivación de pacientes externados. Gestión del equipo de psiquiatras' },
+    { area: 'Coordinación adultos', responsable: 'Lic. M. Eugenia Vitar', mail: 'mevitar@apisaludmental.com.ar', subject: 'Consultas clínicas referidas la red de profesionales de adultos y admisores y/o procedimientos del área' },
+    { area: 'Coordinación infanto Juvenil', responsable: 'Lic. Andrea Gryner', mail: 'Andrea.gryner@apisaludmental.com.ar', subject: 'Consultas clínicas referidas la red de profesionales infanto y admisores y/o procedimientos del área' },
+    { area: 'Acompañamientos terapéuticos', responsable: 'Ivanna Di Tullio', mail: ['at@apisaludmental.com.ar', 'iditullio@apisaludmental.com.ar'], subject: 'Consultas referidas a la derivación o proceder sobre el área' },   
+    { area: 'Modulos interdisciplinarios', responsable: 'Ivanna Di Tullio', mail: 'modulosinterdisciplinarios@apisaludmental.com.ar', subject: 'Consultas referidas a la derivación o proceder sobre el área' },
+    { area: 'Gestion asistencial', responsable: 'Gabriela Caraballo', mail: ['gestion.asistencial@apisaludmental.com.ar', 'gcaraballo@apisaludmental.com.ar'], subject: 'Gestion extensión de tratamientos, aumento de frecuencia y 2da consulta psiquiátrica Gestion autorizaciones, Casos judicializados' },
+    { area: 'Dispositivos especiales', responsable: ['Lic. Micaela Muñoz', 'Milagros Quiroz'], mail: ['dispositivosespeciales@apisaludmental.com.ar', 'mquiroz@apisaludmental.com.ar'], subject: 'Consultas vinculadas a dispositivos de atencion especializados (consumo problemático, TCA, Hospital de día) y gestión de autorizaciones' },
+    { area: 'Reclamos y contacto pacientes', responsable: 'Catalina Oller', mail: ['reclamos@apisaludmental.com.ar', 'contacto@apisaludmental.com.ar'], subject: 'Gestión de reclamos, gestión contacto paciente' },
+    
   ]
 };
 
@@ -316,8 +360,18 @@ function renderMails(area = 'asistencial') {
   mailCards.setAttribute('aria-labelledby', activeTab.id);
   mailCards.innerHTML = mails.map(item => {
     const body = 'Hola, equipo API\n\nLes escribo por la siguiente consulta:\n\n\n\nLos datos del paciente son:\n\nNombre y apellido:\n\nDNI:\n\nNúmero de credencial:\n\nCobertura Médica:\n\n\n\nGracias.';
-    const href = `mailto:${item.mail}?subject=${encodeURIComponent(item.subject)}&body=${encodeURIComponent(body)}`;
-    return `<article class="mail-card"><h3>${item.area}</h3><p> </p><a href="${href}">${item.mail}</a></article>`;
+    
+    return `<article class="mail-card">
+    <h3>${item.area}</h3>
+    ${item.responsable
+      ? `<p class="mail-responsable">${item.responsable}</p>`
+      : ''
+    }
+    ${(Array.isArray(item.mail) ? item.mail : [item.mail]).map(correo => {
+  const href = `mailto:${correo}?subject=${encodeURIComponent(item.subject)}&body=${encodeURIComponent(body)}`;
+  return `<a href="${href}">${correo}</a>`;
+}).join('<br>')}
+  </article>`;
   }).join('');
 }
 
@@ -378,9 +432,16 @@ document.addEventListener('click', event => {
     modalData.copayTemp = {
       tag: 'Copagos',
       title: coverage.name,
-      content: `<img class="copay-modal-image" src="${image}" alt="Cuadro de copagos de ${coverage.name}"><p class="copay-modal-note">Estos valores podrian sufrir cambios sin notificación previa.</p>`
+      content: `<div class="copay-modal-scroll"><button class="copay-modal-zoom" type="button" aria-label="Ampliar imagen" aria-pressed="false"><img class="copay-modal-image" src="${image}" alt="Cuadro de copagos de ${coverage.name}"><span class="copay-zoom-icon" aria-hidden="true">⌕</span></button></div><p class="copay-zoom-help">Tocá la imagen para ampliar o reducir.</p><p class="copay-modal-note">Estos valores podrían sufrir cambios sin notificación previa.</p>`
     };
     openModal('copayTemp');
+  }
+
+  const copayZoom = event.target.closest('.copay-modal-zoom');
+  if (copayZoom) {
+    const isZoomed = copayZoom.classList.toggle('is-zoomed');
+    copayZoom.setAttribute('aria-pressed', String(isZoomed));
+    copayZoom.setAttribute('aria-label', isZoomed ? 'Reducir imagen' : 'Ampliar imagen');
   }
   if (event.target === modalOverlay) closeModal();
 });
