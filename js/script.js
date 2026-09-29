@@ -293,7 +293,7 @@ const mailsByArea = {
     { area: 'Acompañamientos terapéuticos', responsable: 'Ivanna Di Tullio', mail: ['at@apisaludmental.com.ar', 'iditullio@apisaludmental.com.ar'], subject: 'Consultas referidas a la derivación o proceder sobre el área' },   
     { area: 'Modulos interdisciplinarios', responsable: 'Ivanna Di Tullio', mail: 'modulosinterdisciplinarios@apisaludmental.com.ar', subject: 'Consultas referidas a la derivación o proceder sobre el área' },
     { area: 'Gestion asistencial', responsable: 'Gabriela Caraballo', mail: ['gestion.asistencial@apisaludmental.com.ar', 'gcaraballo@apisaludmental.com.ar'], subject: 'Gestion extensión de tratamientos, aumento de frecuencia y 2da consulta psiquiátrica Gestion autorizaciones, Casos judicializados' },
-    { area: 'Dispositivos especiales', responsable: ['Lic. Micaela Muñoz', 'Milagros Quiroz'], mail: ['dispositivosespeciales@apisaludmental.com.ar', 'mquiroz@apisaludmental.com.ar'], subject: 'Consultas vinculadas a dispositivos de atencion especializados (consumo problemático, TCA, Hospital de día) y gestión de autorizaciones' },
+    { area: 'Dispositivos especiales', responsable: 'Lic. Micaela Muñoz', 'Milagros Quiroz', mail: ['dispositivosespeciales@apisaludmental.com.ar', 'mquiroz@apisaludmental.com.ar'], subject: 'Consultas vinculadas a dispositivos de atencion especializados (consumo problemático, TCA, Hospital de día) y gestión de autorizaciones' },
     { area: 'Reclamos y contacto pacientes', responsable: 'Catalina Oller', mail: ['reclamos@apisaludmental.com.ar', 'contacto@apisaludmental.com.ar'], subject: 'Gestión de reclamos, gestión contacto paciente' },
     
   ]
