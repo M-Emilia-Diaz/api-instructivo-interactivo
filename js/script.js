@@ -22,7 +22,7 @@ const modalData = {
   facturacion: {
     tag: 'Facturación',
     title: 'Factura y honorarios',
-    content: `<p>La factura debe coincidir con la transferencia y enviarse al correo correcto en tiempo y forma para evitar demoras.</p><ul><li>Razón social: Asistencia Psicoterapéutica Integral S.R.L.</li><li>CUIT: 30-70723840-9.</li><li>Enviar facturas a facturahonorarios@apisaludmental.com.ar.</li><li>El importe debe coincidir con lo acreditado, incluidos los centavos.</li><li>La presentación fuera de fecha afecta directamente la transferencia de honorarios del siguiente período.</li></ul>`
+    content: `<p>La factura debe coincidir con la transferencia y enviarse al correo correcto en tiempo y forma para evitar demoras.</p><ul><li>Razón social: Asistencia Psicoterapéutica Integral S.R.L.</li><li>CUIT: 30-70723840-9.</li><li>Enviar facturas a facturahonorarios@apisaludmental.com.ar </li><li>El importe debe coincidir con lo acreditado, incluidos los centavos.</li><li>La presentación fuera de fecha afecta directamente la transferencia de honorarios del siguiente período.</li></ul>`
   }
 };
 
